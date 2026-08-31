@@ -41,7 +41,7 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
             margin: 0;
             padding: 1.5rem 0;
         }
@@ -91,7 +91,7 @@
             margin: 0 auto 2rem auto;
         }
 
-        /* Sección Sobre el Proyecto (Estilo Recorte de Diario) */
+        /* Sección Estilo Recorte de Diario (Usada para Proyecto y Podcast) */
         .journal-section {
             background-color: var(--color-seccion-diario);
             padding: 5rem 2rem;
@@ -140,6 +140,21 @@
             box-shadow: 0 10px 25px rgba(75, 93, 119, 0.12);
         }
 
+        /* Contenedor de video local adaptativo con el mismo estilo de marco */
+        .local-video-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .local-video-container video {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 4px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(75, 93, 119, 0.12);
+            background-color: #000;
+        }
+
         /* Contenedor de las dos fichas para el Circuito */
         .cards-grid {
             display: grid;
@@ -181,7 +196,7 @@
             line-height: 1.6;
         }
 
-        /* Contenedor de video adaptativo */
+        /* Contenedor de video web (YouTube) */
         .video-container {
             position: relative;
             width: 100%;
@@ -193,8 +208,7 @@
             margin-top: 1rem;
         }
 
-        .video-container iframe, 
-        .video-container video {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -221,7 +235,7 @@
             border-bottom: none;
         }
 
-        /* Sección Infografía (Gran tamaño, legible en la página) */
+        /* Sección Infografía (Gran Formato Directo) */
         .infographic-section {
             max-width: 1000px;
             margin: 4rem auto;
@@ -251,10 +265,9 @@
             font-size: 1.1rem;
         }
 
-        /* Infografía grande y limpia integrada en la página */
         .infographic-large {
             width: 100%;
-            max-width: 850px; /* Tamaño amplio y legible */
+            max-width: 850px;
             height: auto;
             border-radius: 12px;
             border: 6px solid #f8f5ee;
@@ -312,6 +325,7 @@
             <li><a href="#proyecto">proyecto</a></li>
             <li><a href="#circuito">circuito</a></li>
             <li><a href="#infografia">infografía</a></li>
+            <li><a href="#podcast">podcast</a></li>
         </ul>
     </nav>
 
@@ -347,7 +361,6 @@
                 
                 <!-- CONTENEDOR DE VIDEO -->
                 <div class="video-container">
-                    <!-- Cambia el src por el enlace de tu video de YouTube -->
                     <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
                 </div>
             </div>
@@ -369,7 +382,6 @@
             </div>
 
             <div style="margin-top: 1.5rem;">
-                <!-- Enlace que abre Tinkercad en otra pestaña con target="_blank" -->
                 <a href="https://www.tinkercad.com" class="btn-cozy" target="_blank" style="display: block; text-align: center;">Abrir Tinkercad ↗</a>
             </div>
         </div>
@@ -382,8 +394,27 @@
             <h2>🎨 Infografía Ejecutiva del Proyecto</h2>
             <p>Diseñada para las autoridades del IRTRA Petapa[cite: 1], integrando los avatares del equipo[cite: 1], la justificación del ODS[cite: 1] y el esquema del sistema.</p>
             
-            <!-- Infografía mostrada a gran tamaño sin botones extra -->
             <img src="nombre-de-tu-infografia.png" alt="Infografía Ejecutiva del Proyecto IRTRA" class="infographic-large">
+        </div>
+    </div>
+
+    <!-- SECCIÓN: Podcast (Mismo estilo que "Sobre el Proyecto" con video local) -->
+    <div id="podcast" class="journal-section">
+        <div class="journal-container">
+            <div class="about-text">
+                <h2>🎙️ Podcast del Proyecto</h2>
+                <p>Escucha los detalles de nuestra propuesta de automatización[cite: 1]. En este espacio explicamos a profundidad el funcionamiento técnico, la integración de los componentes y el impacto sostenible que tendríamos en las instalaciones del parque.</p>
+                <p>Un recorrido auditivo de 5 minutos[cite: 1] donde compartimos el proceso creativo, la investigación y las conclusiones de nuestro equipo de ingeniería.</p>
+            </div>
+            
+            <!-- CONTENEDOR DE VIDEO LOCAL -->
+            <div class="local-video-container">
+                <!-- Cambia 'tu-video-podcast.mp4' por el nombre exacto de tu archivo de video guardado en la carpeta raíz -->
+                <video controls>
+                    <source src="tu-video-podcast.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
         </div>
     </div>
 
