@@ -221,7 +221,7 @@
             border-bottom: none;
         }
 
-        /* Sección Infografía (Estilo Galería) */
+        /* Sección Infografía (Gran tamaño, legible en la página) */
         .infographic-section {
             max-width: 1000px;
             margin: 4rem auto;
@@ -232,7 +232,7 @@
         .infographic-container {
             text-align: center;
             background: var(--color-tarjeta);
-            padding: 3rem;
+            padding: 3rem 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(75, 93, 119, 0.05);
             border: 2px solid #f0eae1;
@@ -241,21 +241,26 @@
         .infographic-container h2 {
             color: var(--color-verde);
             margin-top: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .infographic-preview {
+        .infographic-container p {
+            color: var(--color-gris-azul);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Infografía grande y limpia integrada en la página */
+        .infographic-large {
             width: 100%;
-            max-width: 550px;
+            max-width: 850px; /* Tamaño amplio y legible */
+            height: auto;
             border-radius: 12px;
-            border: 4px solid #f8f5ee;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            margin: 1.5rem 0;
-            transition: transform 0.3s ease;
-        }
-
-        .infographic-preview:hover {
-            transform: scale(1.01);
+            border: 6px solid #f8f5ee;
+            box-shadow: 0 12px 30px rgba(75, 93, 119, 0.1);
+            display: block;
+            margin: 0 auto;
         }
 
         /* Botón estético */
@@ -371,20 +376,14 @@
 
     </div>
 
-    <!-- SECCIÓN: Infografía Ejecutiva -->
+    <!-- SECCIÓN: Infografía Ejecutiva (Gran Formato Directo) -->
     <div id="infografia" class="infographic-section">
         <div class="infographic-container">
             <h2>🎨 Infografía Ejecutiva del Proyecto</h2>
             <p>Diseñada para las autoridades del IRTRA Petapa[cite: 1], integrando los avatares del equipo[cite: 1], la justificación del ODS[cite: 1] y el esquema del sistema.</p>
             
-            <!-- Vista previa de la infografía en PNG. Al hacer clic se abre en grande en otra pestaña -->
-            <a href="nombre-de-tu-infografia.png" target="_blank">
-                <img src="nombre-de-tu-infografia.png" alt="Infografía Ejecutiva del Proyecto IRTRA" class="infographic-preview">
-            </a>
-            
-            <div style="margin-top: 1.5rem;">
-                <a href="nombre-de-tu-infografia.png" class="btn-cozy" target="_blank">Ver Infografía en Pantalla Completa ↗</a>
-            </div>
+            <!-- Infografía mostrada a gran tamaño sin botones extra -->
+            <img src="nombre-de-tu-infografia.png" alt="Infografía Ejecutiva del Proyecto IRTRA" class="infographic-large">
         </div>
     </div>
 
