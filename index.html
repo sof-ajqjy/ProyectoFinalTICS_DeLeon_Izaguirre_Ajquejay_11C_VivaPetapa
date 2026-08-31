@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoIngenio IRTRA Petapa | Centro de Mando y Reciclaje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --green-primary: #3d6e3f;
+            --slate-blue: #4b5d77;
+            --earth-brown: #b88451;
+            --bg-light: #f4f7f4;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e35;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, rgba(61, 110, 63, 0.95), rgba(75, 93, 119, 0.95)), url('https://images.unsplash.com/photo-1532996122724-e3c3fa4a0d5d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 80px 20px 120px 20px;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--earth-brown);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(184, 132, 81, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Container layout */
+        .container {
+            max-width: 1200px;
+            margin: -60px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Grid de Estación Ecológica (No lista) */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .hub-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(75, 93, 119, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid var(--green-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hub-card:nth-child(2) {
+            border-top-color: var(--slate-blue);
+        }
+
+        .hub-card:nth-child(3) {
+            border-top-color: var(--earth-brown);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(75, 93, 119, 0.15);
+        }
+
+        .card-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .hub-card:nth-child(1) .card-icon-wrapper {
+            background: linear-gradient(135deg, var(--green-primary), #528f55);
+        }
+
+        .hub-card:nth-child(2) .card-icon-wrapper {
+            background: linear-gradient(135deg, var(--slate-blue), #6a80a2);
+        }
+
+        .hub-card:nth-child(3) .card-icon-wrapper {
+            background: linear-gradient(135deg, var(--earth-brown), #d19a63);
+        }
+
+        .hub-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .hub-card p {
+            color: #66756f;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Interactive Dropzone / Viewer Box */
+        .dropzone {
+            border: 2px dashed #d0dcd1;
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            background: #fafcf9;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropzone:hover {
+            border-color: var(--green-primary);
+            background: #f0f5f0;
+        }
+
+        .dropzone i {
+            font-size: 2rem;
+            color: var(--slate-blue);
+            margin-bottom: 10px;
+        }
+
+        .dropzone span {
+            display: block;
+            font-size: 0.85rem;
+            color: #66756f;
+            font-weight: 500;
+        }
+
+        .dropzone input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-loaded-info {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--green-primary);
+            font-weight: 600;
+            display: none;
+            word-break: break-all;
+        }
+
+        /* Preview container for uploaded items */
+        .preview-action-btn {
+            display: inline-block;
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background-color: var(--slate-blue);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .preview-action-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        /* Footer eco decor */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--slate-blue);
+            font-size: 0.9rem;
+            border-top: 1px solid #e1e8e1;
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: var(--earth-brown);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .container {
+                margin-top: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-badge"><i class="fas fa-recycle"></i> IRTRA Petapa - ODS 12</div>
+        <h1>Centro de Mando & Entrega Ecológica</h1>
+        <p>Plataforma interactiva de gestión ambiental, automatización inteligente y automatización robótica orientada al reciclaje sostenible.</p>
+    </header>
+
+    <div class="container">
+        <div class="hub-grid">
+            
+            <!-- Tarjeta 1: Documento PDF -->
+            <div class="hub-card">
+                <div>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Expediente e Investigación</h3>
+                    <p>Sube y gestiona el documento técnico formal del proyecto en formato PDF con la investigación, criterios ODS y esquemas de automatización.</p>
+                </div>
+                <div>
+                    <div class="dropzone" id="dropzone-pdf">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Arrastra tu PDF aquí o haz clic para examinar</span>
+                        <input type="file" id="file-pdf" accept=".pdf" onchange="handleFileUpload(this, 'pdf')">
+                    </div>
+                    <div id="info-pdf" class="file-loaded-info"><i class="fas fa-check-circle"></i> Documento cargado con éxito</div>
+                    <button class="preview-action-btn" id="btn-pdf" style="display:none;" onclick="previewFile('pdf')"><i class="fas fa-eye"></i> Visualizar Documento</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Infografía -->
+            <div class="hub-card">
+                <div>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Infografía Ejecutiva</h3>
+                    <p>Carga la infografía de presentación con avatares generados por IA, resumen ejecutivo del sistema y captura del circuito Tinkercad.</p>
+                </div>
+                <div>
+                    <div class="dropzone" id="dropzone-img">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Arrastra tu Infografía (Imagen/PDF) aquí</span>
+                        <input type="file" id="file-img" accept="image/*,.pdf" onchange="handleFileUpload(this, 'img')">
+                    </div>
+                    <div id="info-img" class="file-loaded-info"><i class="fas fa-check-circle"></i> Infografía cargada con éxito</div>
+                    <button class="preview-action-btn" id="btn-img" style="display:none;" onclick="previewFile('img')"><i class="fas fa-eye"></i> Visualizar Infografía</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Video / Podcast -->
+            <div class="hub-card">
+                <div>
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Podcast y Multimedia</h3>
+                    <p>Sube o enlaza el archivo multimedia o video explicativo del proyecto con una duración máxima de 5 minutos sobre su impacto en IRTRA Petapa.</p>
+                </div>
+                <div>
+                    <div class="dropzone" id="dropzone-video">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Arrastra tu Video / Audio o haz clic</span>
+                        <input type="file" id="file-video" accept="video/*,audio/*" onchange="handleFileUpload(this, 'video')">
+                    </div>
+                    <div id="info-video" class="file-loaded-info"><i class="fas fa-check-circle"></i> Archivo multimedia cargado</div>
+                    <button class="preview-action-btn" id="btn-video" style="display:none;" onclick="previewFile('video')"><i class="fas fa-play-circle"></i> Reproducir Archivo</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Centro de Mando Ecológico &bull; Desarrollado para <span>Tecnología Aplicada - Colegio Capouilliez</span> &bull; GitHub Pages</p>
+    </footer>
+
+    <script>
+        const uploadedFiles = {};
+
+        function handleFileUpload(input, type) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                uploadedFiles[type] = URL.createObjectURL(file);
+                
+                const infoEl = document.getElementById(`info-${type}`);
+                const btnEl = document.getElementById(`btn-${type}`);
+                
+                infoEl.innerHTML = `<i class="fas fa-check-circle"></i> ${file.name}`;
+                infoEl.style.display = 'block';
+                btnEl.style.display = 'block';
+            }
+        }
+
+        function previewFile(type) {
+            if (uploadedFiles[type]) {
+                window.open(uploadedFiles[type], '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
