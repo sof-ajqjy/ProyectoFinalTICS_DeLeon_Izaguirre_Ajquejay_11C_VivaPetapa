@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automatización Natural - IRTRA Petapa</title>
     <style>
-        /* Hace que el desplazamiento al hacer clic en el menú sea suave y fluido */
+        /* Desplazamiento suave al hacer clic en el menú */
         html {
             scroll-behavior: smooth;
         }
@@ -15,6 +15,7 @@
             --color-gris-azul: #4b5d77;
             --color-marron: #b88451;
             --color-fondo: #fbf9f5; /* Tono papel/crema suave */
+            --color-seccion-diario: #f4eee3; /* Tono crema tostado para la Alternativa 2 */
             --color-tarjeta: #ffffff;
             --color-texto: #4a403b;
         }
@@ -27,7 +28,7 @@
             color: var(--color-texto);
         }
 
-        /* Barra de navegación superior fija o estática con estilo estético */
+        /* Barra de navegación superior */
         nav {
             background-color: var(--color-fondo);
             position: sticky;
@@ -60,7 +61,6 @@
             color: var(--color-marron);
         }
 
-        /* Línea sutil para la opción activa */
         .nav-links a.active::after {
             content: '';
             position: absolute;
@@ -72,7 +72,7 @@
             border-radius: 2px;
         }
 
-        /* Sección de bienvenida principal */
+        /* Encabezado Principal */
         header {
             text-align: center;
             padding: 4rem 1rem 2rem 1rem;
@@ -91,13 +91,65 @@
             margin: 0 auto 2rem auto;
         }
 
+        /* -----------------------------------------
+           ESTILOS PARA LA ALTERNATIVA 2 (SECCIÓN DIARIO)
+        ----------------------------------------- */
+        .journal-section {
+            background-color: var(--color-seccion-diario);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            scroll-margin-top: 80px; /* Evita que la barra de navegación tape el título */
+            border-top: 1px solid #e8decb;
+            border-bottom: 1px solid #e8decb;
+        }
+
+        .journal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: var(--color-verde);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-texto);
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 4px;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(75, 93, 119, 0.12);
+        }
+
+        /* Contenedor general para las demás secciones */
         .container {
             max-width: 900px;
             margin: 0 auto 4rem auto;
             padding: 0 1.5rem;
         }
 
-        /* Tarjetas estilo "nota" o "fragmento" */
+        /* Tarjetas para Circuito y Multimedia */
         .card {
             background: var(--color-tarjeta);
             margin-bottom: 2.5rem;
@@ -105,7 +157,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(75, 93, 119, 0.05);
             border: 2px solid #f0eae1;
-            scroll-margin-top: 100px; /* Evita que la barra de navegación tape el título al hacer clic */
+            scroll-margin-top: 100px;
         }
 
         .card h2 {
@@ -133,6 +185,14 @@
             opacity: 0.9;
         }
 
+        /* Diseño responsivo para celulares */
+        @media (max-width: 768px) {
+            .journal-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -145,7 +205,7 @@
 </head>
 <body>
 
-    <!-- Menú de Navegación Conectado -->
+    <!-- Menú de Navegación -->
     <nav>
         <ul class="nav-links">
             <li><a href="#inicio" class="active">home</a></li>
@@ -155,26 +215,37 @@
         </ul>
     </nav>
 
+    <!-- Encabezado -->
     <header id="inicio">
         <h1>la tecnología cuida de los pequeños momentos.</h1>
         <p>Proyecto de Automatización Sostenible enfocado en el parque de atracciones IRTRA Petapa[cite: 1].</p>
     </header>
 
-    <div class="container">
-        <!-- Sección 1: Proyecto / Investigación -->
-        <div id="proyecto" class="card">
-            <h2>🌿 Sobre el Proyecto</h2>
-            <p>Diseñamos un sistema electrónico autónomo e inteligente que optimiza la seguridad y los recursos del parque, manteniendo una armonía absoluta con el medio ambiente y alineándose con los Objetivos de Desarrollo Sostenible[cite: 1].</p>
+    <!-- ALTERNATIVA 2: Sección Sobre el Proyecto (Estilo Recorte de Diario) -->
+    <div id="proyecto" class="journal-section">
+        <div class="journal-container">
+            <div class="about-text">
+                <h2>🌿 Sobre el Proyecto</h2>
+                <p>Formamos parte de la Empresa de Ingeniería en Automatización y Control[cite: 1]. Tras un levantamiento técnico en el parque de atracciones <strong>IRTRA Petapa</strong>, identificamos una oportunidad crucial para optimizar la seguridad y los recursos operativos[cite: 1].</p>
+                <p>Nuestro sistema electrónico autónomo e inteligente está diseñado para dar solución a esta problemática, manteniendo una armonía absoluta con el medio ambiente y alineándose estrictamente con los Objetivos de Desarrollo Sostenible (ODS)[cite: 1].</p>
+            </div>
+            <div class="about-image">
+                <!-- Reemplaza el enlace de abajo por la ruta de tu imagen o una foto del IRTRA -->
+                <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?q=80&w=600&auto=format&fit=crop" alt="IRTRA Petapa Naturaleza">
+            </div>
         </div>
+    </div>
 
-        <!-- Sección 2: Circuito (Tinkercad) -->
+    <!-- Resto de secciones de la página -->
+    <div class="container">
+        <!-- Sección: Circuito (Tinkercad) -->
         <div id="circuito" class="card">
             <h2>⚡ Simulación en Tinkercad</h2>
             <p>El prototipo fue desarrollado empleando un microcontrolador Arduino Uno y componentes electrónicos conectados mediante código C++ puro, garantizando eficiencia total[cite: 1].</p>
             <a href="https://www.tinkercad.com" class="btn-cozy" target="_blank">Ver Enlace Tinkercad →</a>
         </div>
 
-        <!-- Sección 3: Multimedia (Infografía y Podcast) -->
+        <!-- Sección: Multimedia (Infografía y Podcast) -->
         <div id="multimedia" class="card">
             <h2>🎨 Infografía y Podcast</h2>
             <p>Explora la infografía ejecutiva del equipo (con avatares de IA estilizados) y escucha los detalles técnicos a profundidad en nuestro podcast oficial[cite: 1].</p>
