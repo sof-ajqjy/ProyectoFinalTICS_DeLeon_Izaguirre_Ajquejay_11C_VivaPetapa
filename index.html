@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automatización Natural - IRTRA Petapa</title>
     <style>
+        /* Hace que el desplazamiento al hacer clic en el menú sea suave y fluido */
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --color-verde: #3d6e3f;
             --color-gris-azul: #4b5d77;
@@ -15,45 +20,56 @@
         }
 
         body {
-            font-family: 'Quicksand', 'Segoe UI', sans-serif, cursive;
+            font-family: 'Quicksand', 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--color-fondo);
             color: var(--color-texto);
         }
 
-        /* Barra de navegación superior estilo minimalista */
+        /* Barra de navegación superior fija o estática con estilo estético */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 3rem;
-            background-color: transparent;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--color-verde);
-            letter-spacing: 1px;
+            background-color: var(--color-fondo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #f0eae1;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            justify-content: center;
+            gap: 2.5rem;
             margin: 0;
+            padding: 1.5rem 0;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--color-gris-azul);
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 5px;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--color-verde);
+            color: var(--color-marron);
+        }
+
+        /* Línea sutil para la opción activa */
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-marron);
+            border-radius: 2px;
         }
 
         /* Sección de bienvenida principal */
@@ -63,7 +79,7 @@
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--color-verde);
             margin-bottom: 0.5rem;
         }
@@ -84,12 +100,12 @@
         /* Tarjetas estilo "nota" o "fragmento" */
         .card {
             background: var(--color-tarjeta);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(75, 93, 119, 0.05);
             border: 2px solid #f0eae1;
-            position: relative;
+            scroll-margin-top: 100px; /* Evita que la barra de navegación tape el título al hacer clic */
         }
 
         .card h2 {
@@ -129,34 +145,37 @@
 </head>
 <body>
 
+    <!-- Menú de Navegación Conectado -->
     <nav>
-        <div class="logo">Naturaleza & Tech.</div>
         <ul class="nav-links">
-            <li><a href="#">inicio</a></li>
-            <li><a href="#">proyecto</a></li>
-            <li><a href="#">circuito</a></li>
-            <li><a href="#">multimedia</a></li>
+            <li><a href="#inicio" class="active">home</a></li>
+            <li><a href="#proyecto">proyecto</a></li>
+            <li><a href="#circuito">circuito</a></li>
+            <li><a href="#multimedia">multimedia</a></li>
         </ul>
     </nav>
 
-    <header>
+    <header id="inicio">
         <h1>la tecnología cuida de los pequeños momentos.</h1>
         <p>Proyecto de Automatización Sostenible enfocado en el parque de atracciones IRTRA Petapa[cite: 1].</p>
     </header>
 
     <div class="container">
-        <div class="card">
+        <!-- Sección 1: Proyecto / Investigación -->
+        <div id="proyecto" class="card">
             <h2>🌿 Sobre el Proyecto</h2>
             <p>Diseñamos un sistema electrónico autónomo e inteligente que optimiza la seguridad y los recursos del parque, manteniendo una armonía absoluta con el medio ambiente y alineándose con los Objetivos de Desarrollo Sostenible[cite: 1].</p>
         </div>
 
-        <div class="card">
+        <!-- Sección 2: Circuito (Tinkercad) -->
+        <div id="circuito" class="card">
             <h2>⚡ Simulación en Tinkercad</h2>
             <p>El prototipo fue desarrollado empleando un microcontrolador Arduino Uno y componentes electrónicos conectados mediante código C++ puro, garantizando eficiencia total[cite: 1].</p>
-            <a href="#" class="btn-cozy">Ver Circuito Prototipo →</a>
+            <a href="https://www.tinkercad.com" class="btn-cozy" target="_blank">Ver Enlace Tinkercad →</a>
         </div>
 
-        <div class="card">
+        <!-- Sección 3: Multimedia (Infografía y Podcast) -->
+        <div id="multimedia" class="card">
             <h2>🎨 Infografía y Podcast</h2>
             <p>Explora la infografía ejecutiva del equipo (con avatares de IA estilizados) y escucha los detalles técnicos a profundidad en nuestro podcast oficial[cite: 1].</p>
             <a href="#" class="btn-cozy">Descubrir Recursos →</a>
