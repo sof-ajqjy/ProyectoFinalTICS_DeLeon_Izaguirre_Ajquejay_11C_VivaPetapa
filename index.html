@@ -15,7 +15,7 @@
             --color-gris-azul: #4b5d77;
             --color-marron: #b88451;
             --color-fondo: #fbf9f5; /* Tono papel/crema suave */
-            --color-seccion-diario: #f4eee3; /* Tono crema tostado para la Alternativa 2 */
+            --color-seccion-diario: #f4eee3; /* Tono crema tostado para el diario */
             --color-tarjeta: #ffffff;
             --color-texto: #4a403b;
         }
@@ -91,14 +91,12 @@
             margin: 0 auto 2rem auto;
         }
 
-        /* -----------------------------------------
-           ESTILOS PARA LA ALTERNATIVA 2 (SECCIÓN DIARIO)
-        ----------------------------------------- */
+        /* Sección Sobre el Proyecto (Estilo Recorte de Diario) */
         .journal-section {
             background-color: var(--color-seccion-diario);
             padding: 5rem 2rem;
             margin: 4rem 0;
-            scroll-margin-top: 80px; /* Evita que la barra de navegación tape el título */
+            scroll-margin-top: 80px;
             border-top: 1px solid #e8decb;
             border-bottom: 1px solid #e8decb;
         }
@@ -142,28 +140,85 @@
             box-shadow: 0 10px 25px rgba(75, 93, 119, 0.12);
         }
 
-        /* Contenedor general para las demás secciones */
-        .container {
-            max-width: 900px;
-            margin: 0 auto 4rem auto;
+        /* Contenedor de las dos fichas para el Circuito */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem auto;
+            max-width: 1000px;
             padding: 0 1.5rem;
+            scroll-margin-top: 100px;
         }
 
-        /* Tarjetas para Circuito y Multimedia */
-        .card {
+        /* Estilo de las fichas interactivas (Efecto zoom/elevación) */
+        .card-interactive {
             background: var(--color-tarjeta);
-            margin-bottom: 2.5rem;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(75, 93, 119, 0.05);
             border: 2px solid #f0eae1;
-            scroll-margin-top: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card h2 {
+        .card-interactive:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(75, 93, 119, 0.12);
+            border-color: var(--color-verde);
+        }
+
+        .card-interactive h2 {
             color: var(--color-verde);
             margin-top: 0;
             font-size: 1.8rem;
+        }
+
+        .card-interactive p {
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        /* Contenedor de video adaptativo */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            height: 0;
+            background-color: #eae3d2;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .video-container iframe, 
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lista de componentes */
+        .components-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        .components-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #e8decb;
+            font-size: 1rem;
+            color: var(--color-texto);
+        }
+
+        .components-list li:last-child {
+            border-bottom: none;
         }
 
         /* Botón estético */
@@ -177,7 +232,7 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(184, 132, 81, 0.3);
             transition: transform 0.2s, opacity 0.2s;
-            margin-top: 1rem;
+            text-align: center;
         }
 
         .btn-cozy:hover {
@@ -185,11 +240,36 @@
             opacity: 0.9;
         }
 
-        /* Diseño responsivo para celulares */
+        /* Sección Multimedia (Infografía y Podcast) */
+        .container-single {
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .card-single {
+            background: var(--color-tarjeta);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(75, 93, 119, 0.05);
+            border: 2px solid #f0eae1;
+            scroll-margin-top: 100px;
+        }
+
+        .card-single h2 {
+            color: var(--color-verde);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Adaptable para dispositivos móviles */
         @media (max-width: 768px) {
             .journal-container {
                 flex-direction: column;
                 gap: 2rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -215,13 +295,13 @@
         </ul>
     </nav>
 
-    <!-- Encabezado -->
+    <!-- Encabezado Principal -->
     <header id="inicio">
         <h1>la tecnología cuida de los pequeños momentos.</h1>
         <p>Proyecto de Automatización Sostenible enfocado en el parque de atracciones IRTRA Petapa[cite: 1].</p>
     </header>
 
-    <!-- ALTERNATIVA 2: Sección Sobre el Proyecto (Estilo Recorte de Diario) -->
+    <!-- Sección: Sobre el Proyecto (Estilo Recorte de Diario) -->
     <div id="proyecto" class="journal-section">
         <div class="journal-container">
             <div class="about-text">
@@ -230,29 +310,62 @@
                 <p>Nuestro sistema electrónico autónomo e inteligente está diseñado para dar solución a esta problemática, manteniendo una armonía absoluta con el medio ambiente y alineándose estrictamente con los Objetivos de Desarrollo Sostenible (ODS)[cite: 1].</p>
             </div>
             <div class="about-image">
-                <!-- Reemplaza el enlace de abajo por la ruta de tu imagen o una foto del IRTRA -->
+                <!-- Reemplaza el enlace src con tu imagen del IRTRA o archivo local -->
                 <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?q=80&w=600&auto=format&fit=crop" alt="IRTRA Petapa Naturaleza">
             </div>
         </div>
     </div>
 
-    <!-- Resto de secciones de la página -->
-    <div class="container">
-        <!-- Sección: Circuito (Tinkercad) -->
-        <div id="circuito" class="card">
-            <h2>⚡ Simulación en Tinkercad</h2>
-            <p>El prototipo fue desarrollado empleando un microcontrolador Arduino Uno y componentes electrónicos conectados mediante código C++ puro, garantizando eficiencia total[cite: 1].</p>
-            <a href="https://www.tinkercad.com" class="btn-cozy" target="_blank">Ver Enlace Tinkercad →</a>
+    <!-- Sección: Simulación en Tinkercad y Video (Dos Fichas Lado a Lado) -->
+    <div id="circuito" class="cards-grid">
+        
+        <!-- FICHA IZQUIERDA: Espacio para Video -->
+        <div class="card-interactive">
+            <div>
+                <h2>🎥 Simulación en Video</h2>
+                <p>Observa la demostración en funcionamiento de nuestro prototipo autónomo simulado.</p>
+                
+                <!-- CONTENEDOR DE VIDEO -->
+                <div class="video-container">
+                    <!-- Cambia el src por el enlace de tu video de YouTube -->
+                    <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
 
-        <!-- Sección: Multimedia (Infografía y Podcast) -->
-        <div id="multimedia" class="card">
+        <!-- FICHA DERECHA: Componentes y Enlace a Tinkercad -->
+        <div class="card-interactive">
+            <div>
+                <h2>⚡ Componentes & Tinkercad</h2>
+                <p>El diseño del circuito implementa exclusivamente código C++ y los siguientes elementos[cite: 1]:</p>
+                
+                <ul class="components-list">
+                    <li>• Microcontrolador Arduino Uno R3[cite: 1]</li>
+                    <li>• Sensor Ultrasónico (HC-SR04)[cite: 1]</li>
+                    <li>• Diodos LED estándar y RGB[cite: 1]</li>
+                    <li>• Zumbador (Buzzer)[cite: 1]</li>
+                    <li>• Resistencias y Protoboard[cite: 1]</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <!-- Enlace que abre Tinkercad en otra pestaña con target="_blank" -->
+                <a href="https://www.tinkercad.com" class="btn-cozy" target="_blank" style="display: block; text-align: center;">Abrir Tinkercad ↗</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Sección: Multimedia (Infografía y Podcast) -->
+    <div class="container-single">
+        <div id="multimedia" class="card-single">
             <h2>🎨 Infografía y Podcast</h2>
-            <p>Explora la infografía ejecutiva del equipo (con avatares de IA estilizados) y escucha los detalles técnicos a profundidad en nuestro podcast oficial[cite: 1].</p>
-            <a href="#" class="btn-cozy">Descubrir Recursos →</a>
+            <p>Explora la infografía ejecutiva del proyecto (con avatares de IA personalizados) y escucha todos los detalles explicados en nuestro podcast oficial[cite: 1].</p>
+            <a href="#" class="btn-cozy" style="margin-top: 1rem;">Descubrir Recursos →</a>
         </div>
     </div>
 
+    <!-- Pie de página -->
     <footer>
         <p>creado con cuidado para el curso de Tecnología Aplicada • IRTRA Petapa[cite: 1]</p>
     </footer>
