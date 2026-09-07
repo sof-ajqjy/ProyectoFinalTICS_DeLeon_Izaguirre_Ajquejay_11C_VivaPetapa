@@ -385,6 +385,23 @@
             border-top: 1px solid #f0eae1;
             margin-top: 4rem;
         }
+
+        <style>
+    /* Estilo exclusivo para tu nueva sección con fondo verde y letras beige */
+    .seccion-verde {
+        background-color: #3d6e3f; /* Tu color verde ecológico */
+        color: #f5f2eb;            /* Color de letra beige suave */
+        border-radius: 12px;
+        padding: 30px;
+        margin: 25px auto;
+        max-width: 1200px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    .seccion-verde h2, 
+    .seccion-verde p {
+        color: #f5f2eb !important; /* Asegura que el texto y títulos tomen el color beige */
+    }
+</style>
     </style>
 </head>
 <body>
@@ -501,21 +518,21 @@
             </div>
         </div>
 
-    <div id="Puntos extra" class="journal-section">
-        <div class="journal-container">
-            <div class="about-text">
-                <h2>Circuito en físico</h2>
-                <p>Observa la realización de nuestro trabajo en físico, listo para instalarlo.</p>
-            </div>
-             <!-- CONTENEDOR DE VIDEO LOCAL -->
-            <div class="local-video-container">
-                <!-- Cambia 'tu-video-podcast.mp4' por el nombre exacto de tu archivo de video guardado en la carpeta raíz -->
-                <video controls>
-                    <source src="recursos/video/puntoextra.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
-                </video>
-            </div>
+<div id="Puntos extra" class="journal-section seccion-verde">
+    <div class="journal-container">
+        <div class="about-text">
+            <h2>Circuito en físico</h2>
+            <p>Observa la realización de nuestro trabajo en físico, listo para instalarlo.</p>
         </div>
+         <!-- CONTENEDOR DE VIDEO LOCAL -->
+        <div class="local-video-container">
+            <video controls style="width: 100%; max-width: 700px; border-radius: 8px;">
+                <source src="recursos/video/puntoextra.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </div>
+</div>
 
         
     </div>
