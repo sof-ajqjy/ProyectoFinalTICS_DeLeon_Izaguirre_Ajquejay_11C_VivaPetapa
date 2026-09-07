@@ -391,6 +391,18 @@
             color: #f5f2eb !important; /* Asegura que el texto y títulos tomen el color beige */
     }
 
+        .contenedor-documentos {
+            display: flex;
+            gap: 20px; /* Espacio entre el PDF y el Word */
+            justify-content: center;
+            flex-wrap: wrap; /* Para que en celulares se acomode uno debajo del otro automáticamente */
+}
+
+        .caja-doc {
+            flex: 1;
+            min-width: 300px; /* Ancho mínimo para que no se aplasten mucho */
+}
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -489,15 +501,38 @@
         </div>
     </div>
 
-    <div id="documento" class="pdf-section">
-        <div class="pdf-container">
-            <h2>Documentación del Proyecto</h2>
-            <p>Consulta el reporte completo e investigación detallada directamente en el documento incrustado a continuación.</p>
-            
-            <!-- Visor interactivo del PDF incrustado -->
-            <embed src="recursos/doc/investigacion.pdf" type="application/pdf" class="pdf-viewer">
+    <div class="semana">
+    <h3>Documentos del Proyecto (PDF y Word)</h3>
+    <p>Puedes visualizar el documento oficial en formato PDF y el archivo complementario:</p>
+    
+    <!-- Contenedor que los pone lado a lado -->
+    <div class="contenedor-documentos">
+        
+        <!-- Documento 1: PDF -->
+        <div class="caja-doc">
+            <h4>Informe en PDF</h4>
+            <div class="pdf-container">
+                <embed src="recursos/doc/investigación.pdf" type="application/pdf" width="100%" height="350px" />
+            </div>
+            <p style="text-align: center; font-size: 0.85em; margin-top: 8px;">
+                <a href="recursos/doc/investigacion.pdf" target="_blank">Descargar PDF</a>
+            </p>
         </div>
+
+        <!-- Documento 2: Word (o enlace/visor alternativo) -->
+        <div class="caja-doc">
+            <h4>Documento en Word</h4>
+            <!-- Si usas visor de office online o un botón de descarga directa -->
+            <div class="pdf-container" style="display: flex; align-items: center; justify-content: center; height: 350px; background: #f9f9f9;">
+                <div style="text-align: center; padding: 20px;">
+                    <p>Archivo de Word complementario</p>
+                    <a href="Recursos/pdf/wordI.docx" target="_blank" style="background: #3d6e3f; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 10px;">Descargar Word (.docx)</a>
+                </div>
+            </div>
+        </div>
+
     </div>
+</div>
 
     <!-- SECCIÓN: Podcast (Mismo estilo que "Sobre el Proyecto" con video local) -->
     <div id="podcast" class="journal-section">
