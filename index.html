@@ -295,18 +295,7 @@
             opacity: 0.9;
         }
 
-        /* Adaptable para dispositivos móviles */
-        @media (max-width: 768px) {
-            .journal-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-.pdf-section {
+        .pdf-section {
             max-width: 1000px;
             margin: 4rem auto;
             padding: 0 1.5rem;
@@ -338,29 +327,46 @@
         /* Estilo para el visor del documento PDF */
         .pdf-viewer {
             width: 100%;
-            height: 650px; /* Altura generosa para leer cómodamente el documento */
+            height: 650px;
             border-radius: 12px;
             border: 4px solid #f8f5ee;
             box-shadow: 0 8px 25px rgba(75, 93, 119, 0.08);
         }
-
-        /* Botón estético */
-        .btn-cozy {
-            display: inline-block;
-            background-color: var(--color-marron);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(184, 132, 81, 0.3);
-            transition: transform 0.2s, opacity 0.2s;
-            text-align: center;
+             
+        .seccion-verde {
+            background-color: #3d6e3f;
+            color: #f5f2eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px auto;
+            max-width: 1200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-cozy:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+        .seccion-verde h2, 
+        .seccion-verde p {
+            color: #f5f2eb !important;
+        }
+
+        .contenedor-documentos {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .caja-doc {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-gris-azul);
+            font-size: 0.9rem;
+            border-top: 1px solid #f0eae1;
+            margin-top: 4rem;
         }
 
         /* Adaptable para dispositivos móviles */
@@ -376,43 +382,6 @@
                 height: 450px;
             }
         }
-             
-        .seccion-verde {
-            background-color: #3d6e3f; /* Tu color verde ecológico */
-            color: #f5f2eb;            /* Color de letra beige suave */
-            border-radius: 12px;
-            padding: 30px;
-            margin: 25px auto;
-            max-width: 1200px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-        .seccion-verde h2, 
-        .seccion-verde p {
-            color: #f5f2eb !important; /* Asegura que el texto y títulos tomen el color beige */
-    }
-
-        .contenedor-documentos {
-            display: flex;
-            gap: 20px; /* Espacio entre el PDF y el Word */
-            justify-content: center;
-            flex-wrap: wrap; /* Para que en celulares se acomode uno debajo del otro automáticamente */
-}
-
-        .caja-doc {
-            flex: 1;
-            min-width: 300px; /* Ancho mínimo para que no se aplasten mucho */
-}
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--color-gris-azul);
-            font-size: 0.9rem;
-            border-top: 1px solid #f0eae1;
-            margin-top: 4rem;
-        }
-
-
     </style>
 </head>
 <body>
@@ -424,7 +393,7 @@
             <li><a href="#proyecto">proyecto</a></li>
             <li><a href="#circuito">circuito</a></li>
             <li><a href="#infografia">infografía</a></li>
-            <li><a href="#documento">documento pdf</a></li>
+            <li><a href="#documentacion">documento pdf</a></li>
             <li><a href="#podcast">podcast</a></li>
         </ul>
     </nav>
@@ -444,7 +413,6 @@
                 <p>Nuestro sistema electrónico autónomo e inteligente está diseñado para dar solución a esta problemática, manteniendo una armonía absoluta con el medio ambiente y alineándose estrictamente con los Objetivos de Desarrollo Sostenible (ODS).</p>
             </div>
             <div class="about-image">
-                <!-- Cambia 'tu-imagen-irtra.jpg' por el nombre de tu archivo en la carpeta raíz -->
                 <img src="recursos/imagen/irtraimg.jpg" alt="IRTRA Petapa Naturaleza">
             </div>
         </div>
@@ -491,36 +459,35 @@
 
     </div>
 
-    <!-- SECCIÓN: Infografía Ejecutiva (Gran Formato Directo) -->
+    <!-- SECCIÓN: Infografía Ejecutiva -->
     <div id="infografia" class="infographic-section">
         <div class="infographic-container">
             <h2>Infografía Ejecutiva</h2>
-            <p>Diseñada para las autoridades del IRTRA Petapa, presentando a nuestro equipo, mostrando la justificación del ODSy el esquema del sistema.</p>
+            <p>Diseñada para las autoridades del IRTRA Petapa, presentando a nuestro equipo, mostrando la justificación del ODS y el esquema del sistema.</p>
             
             <img src="recursos/imagen/infografia3.jpeg" alt="Infografía Ejecutiva del Proyecto IRTRA" class="infographic-large">
         </div>
     </div>
 
-   <div class="semana" id="documentacion">
-    <h3>Documentación del Proyecto</h3>
-    <p>Visualiza el informe completo del proyecto o descarga el documento complementario en Word:</p>
-    
-        <!-- Visor de PDF grande y centrado -->
+    <!-- SECCIÓN: Documentación PDF y Word -->
+    <div class="pdf-section" id="documentacion">
         <div class="pdf-container">
-            <embed src="recursos/doc/investigacion.pdf" type="application/pdf" width="100%" height="550px" />
-        </div>
+            <h2>Documentación del Proyecto</h2>
+            <p>Visualiza el informe completo del proyecto o descarga el documento complementario en Word:</p>
+            
+            <!-- Visor de PDF grande -->
+            <embed src="recursos/doc/investigacion.pdf" type="application/pdf" class="pdf-viewer" />
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+            <hr style="border: 0; border-top: 1px solid #f0eae1; margin: 30px 0;">
 
-        <!-- Único botón para descargar el Word -->
-        <div style="text-align: center;">
-            <a href="recursos/doc/wordI.docx" target="_blank" style="background-color: #3d6e3f; color: #f5f2eb; padding: 12px 25px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(61, 110, 63, 0.2); transition: transform 0.3s ease;">
-                Descargar Documento en Word
+            <!-- Único botón para descargar el Word con estilo acogedor -->
+            <a href="recursos/doc/wordI.docx" target="_blank" class="btn-cozy">
+                Descargar Documento en Word (.docx)
             </a>
         </div>
     </div>
     
-    <!-- SECCIÓN: Podcast (Mismo estilo que "Sobre el Proyecto" con video local) -->
+    <!-- SECCIÓN: Podcast -->
     <div id="podcast" class="journal-section">
         <div class="journal-container">
             <div class="about-text">
@@ -530,31 +497,29 @@
             
             <!-- CONTENEDOR DE VIDEO LOCAL -->
             <div class="local-video-container">
-                <!-- Cambia 'tu-video-podcast.mp4' por el nombre exacto de tu archivo de video guardado en la carpeta raíz -->
                 <video controls>
                     <source src="recursos/video/podcast2.mp4" type="video/mp4">
                     Tu navegador no soporta la reproducción de video.
                 </video>
             </div>
         </div>
-
-<div id="Puntos extra" class="journal-section seccion-verde">
-    <div class="journal-container">
-        <div class="about-text">
-            <h2>Circuito en físico</h2>
-            <p>Observa la realización de nuestro trabajo en físico, listo para instalarlo.</p>
-        </div>
-         <!-- CONTENEDOR DE VIDEO LOCAL -->
-        <div class="local-video-container">
-            <video controls style="width: 100%; max-width: 700px; border-radius: 8px;">
-                <source src="recursos/video/puntoextra.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
-        </div>
     </div>
-</div>
 
-        
+    <!-- SECCIÓN: Circuito en físico (Puntos extra - Fondo verde y letras beige) -->
+    <div id="Puntos extra" class="journal-section seccion-verde" style="margin: 0 auto 4rem auto; max-width: 1000px;">
+        <div class="journal-container">
+            <div class="about-text">
+                <h2>Circuito en físico</h2>
+                <p>Observa la realización de nuestro trabajo en físico, listo para instalarlo.</p>
+            </div>
+            <!-- CONTENEDOR DE VIDEO LOCAL -->
+            <div class="local-video-container">
+                <video controls style="width: 100%; max-width: 450px; border-radius: 4px; border: 8px solid rgba(255,255,255,0.2); background-color: #000;">
+                    <source src="recursos/video/puntoextra.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+            </div>
+        </div>
     </div>
 
     <!-- Pie de página -->
